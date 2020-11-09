@@ -147,14 +147,14 @@ applied sequentially.
 
 #### Create Article Citation Network
 Once the list of DOI is available, it is used to fetch subgraph of Article
-Citation Network for these DOIs. `Listing 6` shows details of fetching article citation network as a
+Citation Network for these DOIs. `script 6` shows details of fetching article citation network as a
 subgraph from COCI. Further, it saves the same graph as a binary file for further analysis. Also, the CSV
 file can be used with any graph processing library (such as NetworkX) while binary file can be read using
 SNAP.
 
 #### Create Author Collaboration Network
 Author collaboration is identified via a list of co-authors from
-JSON Data fetched from CrossRef. Author Collaboration network is created as shown in `Listing 7.`
+JSON Data fetched from CrossRef. Author Collaboration network is created as shown in `script 7.`
 This refined data is further used for Comparative Analysis in the subsequent section. It is important to
 note that the count of Authors at this sub-step may vary from next sub-step of creating Author Citation
 Network since the list of co-authors in CrossRef is provided as a list of names and we do not include
@@ -162,7 +162,7 @@ further metadata about these authors.
 
 #### Create Author Citation Network
 Using the subgraph of Article Citation Network, respective edges are
-made for Authors to create Author Citation Network, as shown `Listing 8.` All co-authors are linked to
+made for Authors to create Author Citation Network, as shown `script 8.` All co-authors are linked to
 use full counting method. In case method of partial counting is to be utilised then this script needs to
 be modified. However, our workflow is not affected by the use of a partial or full counting method and
 hence we have picked simpler one for brevity. In any case, this network shall supplement the analysis on
@@ -185,4 +185,4 @@ Scientific Networks. Sub-steps may be applied as required, as there is no depend
 
 #### Applying centrality measures on Article citation network
 The article citation network is a Directed Acyclic Graph (DAG). Most centrality analyses are not meaningful on DAG. Two measures are presented
-in `Listing 15.` Degree Centrality provides highly cited articles. Finding authors of these articles is also possible. Influence definition in DAG is captured via the recursive definition of Katz Centrality.
+in `script 15.` Degree Centrality provides highly cited articles. Finding authors of these articles is also possible. Influence definition in DAG is captured via the recursive definition of Katz Centrality.
