@@ -88,3 +88,101 @@ authors. In `script 4`, Authors are extracted from the previous created JSON dum
 is important to note that we do not apply any technique for author name disambiguation and rely on
 CrossRef to provide correct author names. Although this is problematic for further analysis, in the long
 run, corrected data from a single source is much efficient than using different methods of cleaning.
+
+#### Fetch DOI list from Data
+Once data is fetched from CrossRef as JSON, we populate the list of DOI.
+`script 5` shows how DOIs are extracted from the previously created JSON dump from `script 3`. Although the
+purpose of fetching DOI is also completed in `script 4`, but it’s replica is created in `script 5` to suggest
+that analysis with only provided DOI list is also possible. So the previous two sub-steps can be ignored if
+analysing a specific journal is not needed. If the list of DOIs is fetched from an external source, then it
+can be easily incorporated in this workflow.
+
+#### Creating Ego Network
+Details of the step are shown in `Figure 4`. Below we define the sub-steps to create Ego Network. This step
+can be iterated zero or more times to grow the network as desired. This step is not used in Comparative
+Analysis, however, we provide the details in this section to show that with Publicly accessible metadata it
+is relatively easier to scale our approach. Further, this step justifies our approach of using SNAP over
+other network processing libraries since the process of creating the Ego Network is not only fast but
+intuitive to code, due to a variety of functions available in the extensive library documentation that makes
+it easier to access the nodes in both directions of an edge. Also the integer labels makes the computation
+faster than using string labels.
+
+![Creating Ego Network](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figure4.jpg)
+`Figure 4.` Step 3 of the workflow with details of creating the Ego Network. Sub-steps are applied
+sequentially, and may be iterated over to create next level of Ego Network.
+
+#### Load COCI Binary to Fetch Subgraph
+`Script 12` shows the loading of the network and the
+fetching of individual node labels. After loading a binary file of COCI a subset of the graph is fetched
+with nodes linked at one level apart i.e. they either cite or are cited-by the existing articles. Processing a
+subgraph from 625M edges takes a few minutes on a Core i5 laptop with 16 GB RAM. To confine the
+discussion in this article related to the workflow we have omitted detailed analysis of time calculation, but
+provide enough details so that this work is reused by other researchers.
+
+#### Crossref Dump For EgoNet
+`Script 13` shows the fetching of CrossRef data for all DOI of Article
+Ego Network created in the previous step. This way first we download all data and then process it to
+create the network. Depending on the size of the network and the number of Ego Network levels, as well
+as, internet speed this process can take from a few hours to days to complete. Once a local copy of data is
+available this delay can be reduced. Since we do not have access to complete dump of CrossRef, we could
+not identify whether these same script can be reused but we assume that there would be few changes
+required to access the data locally.
+
+#### DOI and Author List Extraction
+`Script 14` shows the creation of the Ego Network for Authors. This
+is similar to `script 4 and 5` for nodes of Journal data downloaded earlier. However, here we add the
+connecting nodes fetched in subgraph above and download their respective Author details.
+
+#### Creating Scientific Network(s)
+Details of the step are shown in `Figure 5.` Once all the data is pre-processed, this step created different
+types of network. We can also add Bibliographic coupling and Co-citation network within the list, but
+they are ignored for two reasons. First, we did not find much evidence of centrality analysis on these
+networks. Secondly, the processing time for creating these networks for a very large citation network is
+relatively much longer than creating Author collaboration or Author Citation Network. These networks
+are simply created by creating an edge list for authors who have collaborated or cited each other.
+
+![Fig5](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figure5.jpg)
+`Figure 5.` Step 4 of the workflow with details of creating different Scientific Networks. Sub-steps are
+applied sequentially.
+
+#### Create Article Citation Network
+Once the list of DOI is available, it is used to fetch subgraph of Article
+Citation Network for these DOIs. `Listing 6` shows details of fetching article citation network as a
+subgraph from COCI. Further, it saves the same graph as a binary file for further analysis. Also, the CSV
+file can be used with any graph processing library (such as NetworkX) while binary file can be read using
+SNAP.
+
+#### Create Author Collaboration Network
+Author collaboration is identified via a list of co-authors from
+JSON Data fetched from CrossRef. Author Collaboration network is created as shown in `Listing 7.`
+This refined data is further used for Comparative Analysis in the subsequent section. It is important to
+note that the count of Authors at this sub-step may vary from next sub-step of creating Author Citation
+Network since the list of co-authors in CrossRef is provided as a list of names and we do not include
+further metadata about these authors.
+
+#### Create Author Citation Network
+Using the subgraph of Article Citation Network, respective edges are
+made for Authors to create Author Citation Network, as shown `Listing 8.` All co-authors are linked to
+use full counting method. In case method of partial counting is to be utilised then this script needs to
+be modified. However, our workflow is not affected by the use of a partial or full counting method and
+hence we have picked simpler one for brevity. In any case, this network shall supplement the analysis on
+a collaboration network that was constructed in the previous step, as well as, Article Citation network that
+is originally provided.
+
+#### Centrality Analysis
+Details of the step are shown in `Figure 6.` Below we define the sub-steps to apply different centrality
+measures on the Scientific Networks. This is one of the common method employed in the bibliometric
+analysis, however, other methods of SNA can also be applied at this step. Any tool or wrapper API may
+restrict the functionality at this point, however, this work can be extended to use any functions in existing
+network processing libraries. Since using tools is easier than the script, a future application of this study
+could be about creating a front end tool for ease of use. Below we provide details about how the different
+centrality measures applied by different studies discussed above can be done. Each of the measures is
+separated in the different listing, along with loading and initialisation.
+
+![Fig6](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figure6.jpg)
+`Figure 6.` Step 5 of the workflow with details of centrality measures that are applied on different
+Scientific Networks. Sub-steps may be applied as required, as there is no dependency within steps.
+
+#### Applying centrality measures on Article citation network
+The article citation network is a Directed Acyclic Graph (DAG). Most centrality analyses are not meaningful on DAG. Two measures are presented
+in `Listing 15.` Degree Centrality provides highly cited articles. Finding authors of these articles is also possible. Influence definition in DAG is captured via the recursive definition of Katz Centrality.
