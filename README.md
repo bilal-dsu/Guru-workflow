@@ -84,7 +84,7 @@ records. These records are fetched by two API requests to create JSON of SCIM Jo
 
 #### Fetch Author(s) list from Data
 Once data is fetched from CrossRef as JSON, we populate the list of
-authors. In Listing 4, Authors are extracted from the previous created JSON dump from Listing 3. It
+authors. In `script 4`, Authors are extracted from the previous created JSON dump from `script 3`. It
 is important to note that we do not apply any technique for author name disambiguation and rely on
 CrossRef to provide correct author names. Although this is problematic for further analysis, in the long
 run, corrected data from a single source is much efficient than using different methods of cleaning.
