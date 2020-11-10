@@ -1,3 +1,6 @@
+# Authors Bilal Hayat Butt, Talha Aslam, Sufyan Faizi
+# Description 
+
 import snap ,os, pandas as pd,sys
 
 srcNode = ''
