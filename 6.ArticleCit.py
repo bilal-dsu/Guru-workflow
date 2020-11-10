@@ -1,10 +1,17 @@
-# Authors Bilal Hayat Butt, Sufyan Faizi
-# Description The code is used to create article citation network from DOI's extracted from 'DOIList.py'
-# First it loads the COCI data graph and hash files created from 'SNAP_Binary.py'
-# Second, the code creates vector of node id present in the csv which is created from 'DOIList.py' 
-# Third, find the subgraph of created vector in graph file
-# Fourth, create graph of article citation network 
+"""
 
+Created on Sun Nov 24 2019
+@author: Bilal Hayat Butt, Sufyan Faizi
+@Description: The code is used to create article citation network from DOI's extracted from 'DOIList.py'
+First it loads the COCI data graph and hash files created from 'SNAP_Binary.py'
+Second, the code creates vector of node id present in the csv which is created from 'DOIList.py' 
+Third, find the subgraph of created vector in graph file
+Fourth, create graph of article citation network 
+
+"""
+
+# Authors Bilal Hayat Butt, Sufyan Faizi
+# Description 
 import snap,csv,sys,os
 
 #Load COCI Data
