@@ -1,5 +1,9 @@
-# Authors Bilal Hayat Butt, Sufyan Faizi
-# Description The code converts COCI data csv to edgelist csv which contains citing and cited columns.
+"""
+Created on Sun Nov 24 2019
+@author: Bilal Hayat Butt, Sufyan Faizi
+@Description: The code converts COCI data csv to edgelist csv which contains citing and cited columns.
+
+"""
 
 import pandas as pd #pip install pandas
 import sys,os
