@@ -1,3 +1,5 @@
+# Authors Bilal Hayat Butt, Talha Aslam, Sufyan Faizi
+# Description
 import json, os,sys,snap
 
 path = os.path.join(os.getcwd(),sys.argv[1],"EgoNet","DOI_AuthorCSEgoNet.csv")
