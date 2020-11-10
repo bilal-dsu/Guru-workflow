@@ -1,3 +1,6 @@
+# Authors Bilal Hayat Butt, Sufyan Faizi
+# Description The code is used to fetch data from the files created from 'JsonDump.py', we extract authors from JSON files and populate it in CSV for further analysis.
+
 import json,os,sys
 
 path = os.path.join(os.getcwd(), sys.argv[2], sys.argv[1]+'.csv')
