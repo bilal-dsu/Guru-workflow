@@ -1,3 +1,6 @@
+# Authors Bilal Hayat Butt, Sufyan Faizi
+# Description The code is used to create article citation network from DOI's extracted from 'DOIList.py'
+
 import snap,csv,sys,os
 
 #Load COCI Data
