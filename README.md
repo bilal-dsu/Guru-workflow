@@ -130,7 +130,7 @@ required to access the data locally.
 
 #### DOI and Author List Extraction
 `DOIAUthorExtractionForEgoNet.py` shows the creation of the Ego Network for Authors. This
-is similar to `Extraction.py and DOIList.py` for nodes of Journal data downloaded earlier. However, here we add the
+is similar to `Extraction.py` and `DOIList.py` for nodes of Journal data downloaded earlier. However, here we add the
 connecting nodes fetched in subgraph above and download their respective Author details.
 
 #### Creating Scientific Network(s)
