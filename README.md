@@ -191,7 +191,7 @@ in `script 9.` Degree Centrality provides highly cited articles. Finding authors
 The author citation network is a cyclic graph. Three measures are presented in `script 10`, namely, Highly cited authors (degree centrality), Influential authors (Eigen centrality), Authors working in multiple domains (betweenness centrality).
 
 #### Applying centrality measures on Author Collaboration network 
-The author collaboration network is a cyclic graph and most centrality analyses are possible. Five measures are presented in `script 11`, namely, Highly collaborative authors (degree centrality), Influential collaborators (Eigen centrality), Authors working in multiple groups (betweenness centrality), Well knitted authors (closeness centrality), Solo authors (farness centrality). Ranks captured here are presented in Table 2. This work was done manually by sorting individual lists on respective centrality scores and identifying their rank position.
+The author collaboration network is a cyclic graph and most centrality analyses are possible. Five measures are presented in `script 11`, namely, Highly collaborative authors (degree centrality), Influential collaborators (Eigen centrality), Authors working in multiple groups (betweenness centrality), Well knitted authors (closeness centrality), Solo authors (farness centrality). Ranks captured here are presented in `Table 2`. This work was done manually by sorting individual lists on respective centrality scores and identifying their rank position.
 
 #### Batch Execution
 All python scripts can be executed through a sample batch file in `AllScripts.bat` by modifying the
