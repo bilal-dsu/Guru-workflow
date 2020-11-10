@@ -1,8 +1,8 @@
 # Authors Bilal Hayat Butt, Sufyan Faizi
 # Description The code is used to apply centrality analysis on author citation network
 # First, author citation graph is loaded in memory
-# Second, SNAP and Netowkrx python API's were used to calculate the scores of below centrality measures
-# Indegree and Out degree centrality
+# Second, SNAP and Netoworkx python API's were used to calculate the scores of below centrality measures
+# Indegree and Outdegree centrality
 # Eigen centrality
 # Betweness centrality
 
