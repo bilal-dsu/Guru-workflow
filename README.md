@@ -91,8 +91,8 @@ run, corrected data from a single source is much efficient than using different 
 
 #### Fetch DOI list from Data
 Once data is fetched from CrossRef as JSON, we populate the list of DOI.
-`DOIList.py` shows how DOIs are extracted from the previously created JSON dump from `script 3`. Although the
-purpose of fetching DOI is also completed in `script 4`, but it’s replica is created in `script 5` to suggest
+`DOIList.py` shows how DOIs are extracted from the previously created JSON dump from `JsonDump.py`. Although the
+purpose of fetching DOI is also completed in `Extraction.py`, but it’s replica is created in `DOIList.py` to suggest
 that analysis with only provided DOI list is also possible. So the previous two sub-steps can be ignored if
 analysing a specific journal is not needed. If the list of DOIs is fetched from an external source, then it
 can be easily incorporated in this workflow.
