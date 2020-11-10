@@ -1,3 +1,6 @@
+:: Authors Bilal Hayat Butt, Anas ur Rehman, Sufyan Faizi
+
+
 @echo off
 set csvFileName="DOI"
 set dirName="COCI"
