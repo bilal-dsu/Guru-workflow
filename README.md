@@ -6,11 +6,11 @@ article.
 We aim to provide details of our extended analysis in an upcoming publication and not clutter this workflow with unnecessary details. Although this case study is limited to data of SCIM, we have made every effort to keep the process automated, such that applying the same script to other journals or set of journals, require minimum changes. 
 Overview of the process is depicted in `Figure 1`, and further details about each of the following step are provided separately. Each step is distributed with three sub-steps for clarity and batch execution.
 
-1. The first step is to download the Citation Index provided as COCI.
-2. The second step is to download the CrossRef Data, for provided ISSN through CrossRef.
-3. The third step is to fetch Ego Network from COCI data, for the DOIs of respective ISSN.
-4. The fourth step is to merge these data to create different Scientific Network(s).
-5. Finally, the last step is to apply the centrality analysis on these networks.
+1. The **first step** is to download the Citation Index provided as COCI.
+2. The **second step** is to download the CrossRef Data, for provided ISSN through CrossRef.
+3. The **third step** is to fetch Ego Network from COCI data, for the DOIs of respective ISSN.
+4. The **fourth step** is to merge these data to create different Scientific Network(s).
+5. Finally, the **last step** is to apply the centrality analysis on these networks.
 
 ![Image of Pyramid](https://github.com/bilal-dsu/Guru-workflow/blob/main/index.jpg)
 `Figure 1.` Workflow to Identify Gurus of any Field. A pyramid shows the refinement of data at every
