@@ -1,3 +1,7 @@
+# Authors Bilal Hayat Butt, Sufyan Faizi
+# Description The code makes API call to crossref with given ISSN, start date and end date which returns JSON response, the response used to create data dump of crossref 
+
+
 import sys,os
 import json, requests #pip install requests
 
