@@ -1,6 +1,11 @@
-# Authors Bilal Hayat Butt, Sufyan Faizi
-# Description The code is used to create author citation network
-# The code loads the graph of article citation network
+"""
+
+Created on Sun Nov 24 2019
+@author: Bilal Hayat Butt, Sufyan Faizi
+@Description: The code is used to create author citation network
+The code loads the graph of article citation network
+
+"""
 
 import csv , time , snap, os, sys
 #Load Article Citation Graph
