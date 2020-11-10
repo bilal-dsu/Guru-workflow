@@ -43,7 +43,7 @@ which are used to create the Article Citation Network.
 This step is needed to convert the COCI Data to an edge list format.
 It is an easy to process format, with two nodes on each row signifying an edge. This format is supported
 by SNAP (Leskovec and Sosicˇ, 2016), which is used for processing huge network data, such as COCI.
-After this step Edge list file is approx 35 GB. `Script 1` converts the COCI from comma-separated-values
+After this step Edge list file is approx 35 GB. `Edge_List.py` converts the COCI from comma-separated-values
 (CSV) to space-separated-values having only citing and cited column. This is the only format supported
 by SNAP. Some formatting corrections are also made for removing extra CR/LF and quotes since it
 hampers the loading process of SNAP. We have tried to load the same files with other libraries which are
@@ -57,7 +57,7 @@ the edge labels are DOI in the COCI data, therefore they are saved as strings. H
 further processing, so strings are converted to a hash file. There are two binary files generated when
 loading the COCI data in SNAP. First is DOIDirected.graph file which contains the directed citation
 network of COCI, with integer node labels. Second is DOIMapping.hash which maps the integer node
-label to respective DOI. `Script 2` saves loaded graph as Binary files for further computations. Loading
+label to respective DOI. `SNAP_Binary.py` saves loaded graph as Binary files for further computations. Loading
 binary file in-memory takes a few minutes as compared to a few hours for loading CSV data, with the
 downside that additional columns of COCI are currently not being utilised. To keep things simple for
 novice and non-technical user, DOIMapping.hash is simply a node list where node number corresponds
@@ -79,19 +79,19 @@ applied sequentially.
 #### Create CrossRef API string
 CrossRef limits a one time query to 1000 records for a single ISSN. For
 queries with more than 1000 records, multiple API strings are needed which are created automatically by
-the code in `script 3.` Crossref Data of SCIM is fetched from Crossref API which contains total 1857
+the code in `JsonDump.py.` Crossref Data of SCIM is fetched from Crossref API which contains total 1857
 records. These records are fetched by two API requests to create JSON of SCIM Journal.
 
 #### Fetch Author(s) list from Data
 Once data is fetched from CrossRef as JSON, we populate the list of
-authors. In `script 4`, Authors are extracted from the previous created JSON dump from `script 3`. It
+authors. In `Extraction.py`, Authors are extracted from the previous created JSON dump from `JsonDump.py`. It
 is important to note that we do not apply any technique for author name disambiguation and rely on
 CrossRef to provide correct author names. Although this is problematic for further analysis, in the long
 run, corrected data from a single source is much efficient than using different methods of cleaning.
 
 #### Fetch DOI list from Data
 Once data is fetched from CrossRef as JSON, we populate the list of DOI.
-`script 5` shows how DOIs are extracted from the previously created JSON dump from `script 3`. Although the
+`DOIList.py` shows how DOIs are extracted from the previously created JSON dump from `script 3`. Although the
 purpose of fetching DOI is also completed in `script 4`, but it’s replica is created in `script 5` to suggest
 that analysis with only provided DOI list is also possible. So the previous two sub-steps can be ignored if
 analysing a specific journal is not needed. If the list of DOIs is fetched from an external source, then it
@@ -112,7 +112,7 @@ faster than using string labels.
 sequentially, and may be iterated over to create next level of Ego Network.
 
 #### Load COCI Binary to Fetch Subgraph
-`Script 12` shows the loading of the network and the
+`EgoNetCode.py` shows the loading of the network and the
 fetching of individual node labels. After loading a binary file of COCI a subset of the graph is fetched
 with nodes linked at one level apart i.e. they either cite or are cited-by the existing articles. Processing a
 subgraph from 625M edges takes a few minutes on a Core i5 laptop with 16 GB RAM. To confine the
@@ -120,7 +120,7 @@ discussion in this article related to the workflow we have omitted detailed anal
 provide enough details so that this work is reused by other researchers.
 
 #### Crossref Dump For EgoNet
-`Script 13` shows the fetching of CrossRef data for all DOI of Article
+`CrossrefDumpForEgoNet.py` shows the fetching of CrossRef data for all DOI of Article
 Ego Network created in the previous step. This way first we download all data and then process it to
 create the network. Depending on the size of the network and the number of Ego Network levels, as well
 as, internet speed this process can take from a few hours to days to complete. Once a local copy of data is
@@ -129,8 +129,8 @@ not identify whether these same script can be reused but we assume that there wo
 required to access the data locally.
 
 #### DOI and Author List Extraction
-`Script 14` shows the creation of the Ego Network for Authors. This
-is similar to `script 4 and 5` for nodes of Journal data downloaded earlier. However, here we add the
+`DOIAUthorExtractionForEgoNet.py` shows the creation of the Ego Network for Authors. This
+is similar to `Extraction.py and DOIList.py` for nodes of Journal data downloaded earlier. However, here we add the
 connecting nodes fetched in subgraph above and download their respective Author details.
 
 #### Creating Scientific Network(s)
@@ -147,14 +147,14 @@ applied sequentially.
 
 #### Create Article Citation Network
 Once the list of DOI is available, it is used to fetch subgraph of Article
-Citation Network for these DOIs. `script 6` shows details of fetching article citation network as a
+Citation Network for these DOIs. `ArticleCit.py` shows details of fetching article citation network as a
 subgraph from COCI. Further, it saves the same graph as a binary file for further analysis. Also, the CSV
 file can be used with any graph processing library (such as NetworkX) while binary file can be read using
 SNAP.
 
 #### Create Author Collaboration Network
 Author collaboration is identified via a list of co-authors from
-JSON Data fetched from CrossRef. Author Collaboration network is created as shown in `script 7.`
+JSON Data fetched from CrossRef. Author Collaboration network is created as shown in `CollaborationNet.py`
 This refined data is further used for Comparative Analysis in the subsequent section. It is important to
 note that the count of Authors at this sub-step may vary from next sub-step of creating Author Citation
 Network since the list of co-authors in CrossRef is provided as a list of names and we do not include
@@ -162,7 +162,7 @@ further metadata about these authors.
 
 #### Create Author Citation Network
 Using the subgraph of Article Citation Network, respective edges are
-made for Authors to create Author Citation Network, as shown `script 8.` All co-authors are linked to
+made for Authors to create Author Citation Network, as shown `AuthorCit.py` All co-authors are linked to
 use full counting method. In case method of partial counting is to be utilised then this script needs to
 be modified. However, our workflow is not affected by the use of a partial or full counting method and
 hence we have picked simpler one for brevity. In any case, this network shall supplement the analysis on
@@ -185,13 +185,13 @@ Scientific Networks. Sub-steps may be applied as required, as there is no depend
 
 #### Applying centrality measures on Article citation network
 The article citation network is a Directed Acyclic Graph (DAG). Most centrality analyses are not meaningful on DAG. Two measures are presented
-in `script 9.` Degree Centrality provides highly cited articles. Finding authors of these articles is also possible. Influence definition in DAG is captured via the recursive definition of Katz Centrality.
+in `ArticleCentrality.py` Degree Centrality provides highly cited articles. Finding authors of these articles is also possible. Influence definition in DAG is captured via the recursive definition of Katz Centrality.
 
 #### Applying centrality measures on Author citation network
-The author citation network is a cyclic graph. Three measures are presented in `script 10`, namely, Highly cited authors (degree centrality), Influential authors (Eigen centrality), Authors working in multiple domains (betweenness centrality).
+The author citation network is a cyclic graph. Three measures are presented in `AuthorCitCentr.py`, namely, Highly cited authors (degree centrality), Influential authors (Eigen centrality), Authors working in multiple domains (betweenness centrality).
 
 #### Applying centrality measures on Author Collaboration network 
-The author collaboration network is a cyclic graph and most centrality analyses are possible. Five measures are presented in `script 11`, namely, Highly collaborative authors (degree centrality), Influential collaborators (Eigen centrality), Authors working in multiple groups (betweenness centrality), Well knitted authors (closeness centrality), Solo authors (farness centrality). Ranks captured here are presented in `Table 2`. This work was done manually by sorting individual lists on respective centrality scores and identifying their rank position.
+The author collaboration network is a cyclic graph and most centrality analyses are possible. Five measures are presented in `CollaborationCent.py`, namely, Highly collaborative authors (degree centrality), Influential collaborators (Eigen centrality), Authors working in multiple groups (betweenness centrality), Well knitted authors (closeness centrality), Solo authors (farness centrality). Ranks captured here are presented in `Table 2`. This work was done manually by sorting individual lists on respective centrality scores and identifying their rank position.
 
 #### Batch Execution
 All python scripts can be executed through a sample batch file in `AllScripts.bat` by modifying the
