@@ -1,5 +1,8 @@
-# Authors Bilal Hayat Butt, Sufyan Faizi
-# Description The code is used to fetch data from the files created from 'JsonDump.py', we extract DOI's from JSON files and populate it in CSV for further analysis.
+"""
+Created on Sun Nov 24 2019
+@author: Bilal Hayat Butt, Sufyan Faizi
+@Description: The code is used to fetch data from the files created from 'JsonDump.py', we extract DOI's from JSON files and populate it in CSV for further analysis.
+"""
 
 
 import json,sys,os
