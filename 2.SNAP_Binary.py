@@ -1,7 +1,13 @@
-# Authors Bilal Hayat Butt, Sufyan Faizi
-# Description The code loads the edgelist created from 'Edge_List.py' and create two binary files, graph and hash file.
-# graph file which contains the directed citation network of COCI
-# hash file which maps the integer node label to respective DOI
+"""
+Created on Sun Nov 24 2019
+@author: Bilal Hayat Butt, Sufyan Faizi
+@Description: The code loads the edgelist created from 'Edge_List.py' and create two binary files, graph and hash file.
+graph file which contains the directed citation network of COCI
+hash file which maps the integer node label to respective DOI
+
+"""
+
+
 
 import snap #pip install snap-stanford
 import sys,os
