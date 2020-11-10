@@ -185,4 +185,15 @@ Scientific Networks. Sub-steps may be applied as required, as there is no depend
 
 #### Applying centrality measures on Article citation network
 The article citation network is a Directed Acyclic Graph (DAG). Most centrality analyses are not meaningful on DAG. Two measures are presented
-in `script 15.` Degree Centrality provides highly cited articles. Finding authors of these articles is also possible. Influence definition in DAG is captured via the recursive definition of Katz Centrality.
+in `script 9.` Degree Centrality provides highly cited articles. Finding authors of these articles is also possible. Influence definition in DAG is captured via the recursive definition of Katz Centrality.
+
+#### Applying centrality measures on Author citation network
+The author citation network is a cyclic graph. Three measures are presented in `script 10`, namely, Highly cited authors (degree centrality), Influential authors (Eigen centrality), Authors working in multiple domains (betweenness centrality).
+
+#### Applying centrality measures on Author Collaboration network 
+The author collaboration network is a cyclic graph and most centrality analyses are possible. Five measures are presented in `script 11`, namely, Highly collaborative authors (degree centrality), Influential collaborators (Eigen centrality), Authors working in multiple groups (betweenness centrality), Well knitted authors (closeness centrality), Solo authors (farness centrality). Ranks captured here are presented in Table 2. This work was done manually by sorting individual lists on respective centrality scores and identifying their rank position.
+
+#### Batch Execution
+All python scripts can be executed through a sample batch file in `AllScripts.bat` by modifying the
+ISSN and date range. This batch processing will also be useful for developing a front-end tool, as well as,
+modifying the sequence as per need.
