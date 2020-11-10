@@ -1,3 +1,7 @@
+# Authors Bilal Hayat Butt, Sufyan Faizi
+# Description The code is used to create collaboration network from authors extracted from 'Extraction.py'
+# Collaboration network csv is created from the below code, which then converts into binary graph and hash files which is used for further analysys
+
 import csv, snap,sys,os
 
 
