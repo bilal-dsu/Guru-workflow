@@ -1,4 +1,4 @@
-:: Authors Bilal Hayat Butt, Anas ur Rehman, Sufyan Faizi
+:: @Authors: Bilal Hayat Butt, Anas ur Rehman, Sufyan Faizi
 
 
 @echo off
