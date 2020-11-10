@@ -1,7 +1,7 @@
 # Authors Bilal Hayat Butt, Sufyan Faizi
 # Description The code is used to apply centrality analysis on collaboration network
 # First, collaboration network graph is loaded in memory
-# Second, SNAP and Netowkrx python API's were used to calculate the scores of below centrality measures
+# Second, SNAP and Netoworkx python API's were used to calculate the scores of below centrality measures
 # Degree centrality
 # Eigen centrality
 # Betweness, closeness and farness centrality
