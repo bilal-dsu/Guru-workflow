@@ -1,7 +1,11 @@
-# Authors Bilal Hayat Butt, Sufyan Faizi
-# Description The code is used centrality analysis in article citation network
-# First, article citation network graph is loaded,
-# Second, indegree and out degree centrality was calculated from article citation network
+"""
+Created on Sun Nov 24 2019
+@author: Bilal Hayat Butt, Sufyan Faizi
+@Description: The code is used centrality analysis in article citation network
+First, article citation network graph is loaded,
+Second, indegree and out degree centrality was calculated from article citation network
+
+"""
 
 
 
