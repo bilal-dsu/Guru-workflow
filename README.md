@@ -28,7 +28,7 @@ Details of the step are shown in `Figure 2.` Below we define the sub-steps to co
 used in Python libraries for network processing. This step is computation and memory intensive but needs
 to be performed once.
 
-![Image of steps](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figure2.jpg)
+![Image of steps](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figures/Figure2.jpg)
 `Figure 2.` Step 1 of the workflow with details of creating the citation network. Sub-steps are applied
 sequentially.
 
@@ -72,7 +72,7 @@ data for a single journal, however, it is possible to fetch data with other filt
 Details are provided in its documentation, and the metadata downloaded via different filters is in a similar
 format which makes this script reusable for a variety of tasks.
 
-![ImageFetching CrossRef metadata](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figure3.jpg)
+![ImageFetching CrossRef metadata](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figures/Figure3.jpg)
 `Figure 3.` Step 2 of the workflow with details of fetching metadata from CrossRef API. Sub-steps are
 applied sequentially.
 
@@ -107,7 +107,7 @@ intuitive to code, due to a variety of functions available in the extensive libr
 it easier to access the nodes in both directions of an edge. Also the integer labels makes the computation
 faster than using string labels.
 
-![Creating Ego Network](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figure4.jpg)
+![Creating Ego Network](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figures/Figure4.jpg)
 `Figure 4.` Step 3 of the workflow with details of creating the Ego Network. Sub-steps are applied
 sequentially, and may be iterated over to create next level of Ego Network.
 
@@ -141,7 +141,7 @@ networks. Secondly, the processing time for creating these networks for a very l
 relatively much longer than creating Author collaboration or Author Citation Network. These networks
 are simply created by creating an edge list for authors who have collaborated or cited each other.
 
-![Fig5](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figure5.jpg)
+![Fig5](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figures/Figure5.jpg)
 `Figure 5.` Step 4 of the workflow with details of creating different Scientific Networks. Sub-steps are
 applied sequentially.
 
@@ -179,7 +179,7 @@ could be about creating a front end tool for ease of use. Below we provide detai
 centrality measures applied by different studies discussed above can be done. Each of the measures is
 separated in the different listing, along with loading and initialisation.
 
-![Fig6](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figure6.jpg)
+![Fig6](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figures/Figure6.jpg)
 `Figure 6.` Step 5 of the workflow with details of centrality measures that are applied on different
 Scientific Networks. Sub-steps may be applied as required, as there is no dependency within steps.
 
