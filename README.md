@@ -12,7 +12,7 @@ Overview of the process is depicted in `Figure 1`, and further details about eac
 4. The **fourth step** is to merge these data to create different Scientific Network(s).
 5. Finally, the **last step** is to apply the centrality analysis on these networks.
 
-![Image of Pyramid](https://github.com/bilal-dsu/Guru-workflow/blob/main/index.jpg)
+![Image of Pyramid](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figures/index.jpg)
 `Figure 1.` Workflow to Identify Gurus of any Field. A pyramid shows the refinement of data at every
 step. COCI contains approx. 625 M edges, which is refined to Ego Network for subset nodes fetched for
 respective ISSN. Finally, the top of the pyramid shows the output in form of few nodes identified with
