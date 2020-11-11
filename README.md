@@ -2,7 +2,7 @@
 
 To run all scripts you need to setup python environment, first you need to install `python3` and all its dependencies
 
-Install `python3`
+Install `python3` and its dependencies
 
 #### Windows
 To install `python3` on windows go to the link
