@@ -1,3 +1,27 @@
+# Environment Setup
+
+To run all scripts you need to setup python environment, first you need to install `python3` and all its dependencies
+
+Install `python3`
+
+#### Windows
+To install `python3` on windows go to the link
+[Install Python on windows!](https://www.python.org/downloads/)
+
+#### Ubuntu
+By default python is installed on ubuntu, if not follow the link 
+[Install Python on ubuntu!](https://www.python.org/downloads/source/)
+
+#### Install Dependencies
+After installing python on your machine install dependencies from `requirements.txt`
+
+
+`pip install -r requirements.txt`
+
+
+Once you install `python3` and all its dependcies, follow the Guru workflow guide.
+
+
 # Guru-workflow
 
 To apply **centrality analysis** on the **Author Collaboration** and **Author Citation Networks**, a series of steps are required to create these networks using the Open Citation data which provide the Article Citation Network. All scripts were executed on Windows Server machine having **Quad-Core AMD Opteron(TM) Processor 6272** with **`128 GB RAM`** installed. It is interesting to note that only the initial processing of data requires heavy computation and memory, once. Later, the data is converted to a compressed binary format using libraries for processing large networks and thus can run on any standard laptop machine. Below we provide details of the workflow to create Scientific Networks for a specific journal. This was selected for two primary reasons. Firstly, we wanted to replicate a study on **SCIM** done using **WoS data**. Secondly, a generic 5/34query on CrossRef provided a huge amount of data and its analysis was outside the scope of this current
