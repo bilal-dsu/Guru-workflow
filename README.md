@@ -134,7 +134,7 @@ is relatively easier to scale our approach. Further, this step justifies our app
 other network processing libraries since the process of creating the Ego Network is not only fast but
 intuitive to code, due to a variety of functions available in the extensive library documentation that makes
 it easier to access the nodes in both directions of an edge. Also the integer labels makes the computation
-faster than using string labels.
+faster than using string labels. This step was coded using python 2.7.
 
 ![Creating Ego Network](https://github.com/bilal-dsu/Guru-workflow/blob/main/Figures/Figure5.jpg)
 `Figure 4.` Step 3 of the workflow with details of creating the Ego Network. Sub-steps are applied
